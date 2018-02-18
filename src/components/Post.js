@@ -12,11 +12,9 @@ class Post extends Component {
       <div
         className={`post ${this.props.selected && 'post--selected'}`}
         onClick={this.props.onClick}>
-        <h1>{ this.props.title }</h1>
-        <div>{ this.props.content }</div>
-        {
-          this.props.comments.map((comment) => (<Comment {...comment} />))
-        }
+        <h1>{this.props.title}</h1>
+        <div>{this.props.content}</div>
+        {this.props.comments.map(comment => <Comment {...comment} />)}
       </div>
     );
   }
@@ -28,6 +26,7 @@ Post.propTypes = {
 };
 
 Post.defaultProps = {
+  selected: false,
   onClick: () => {},
 };
 
