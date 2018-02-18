@@ -6,7 +6,7 @@ import Post from './Post';
 
 describe('Post', () => {
   describe('when is empty', () => {
-    it('renders nothing without data', () => {
+    it('renders nothing', () => {
       // given
       const props = {};
 
@@ -101,6 +101,40 @@ describe('Post', () => {
 
       // then
       expect(wrapper.find('Comment')).toHaveLength(2);
+    });
+  });
+
+  describe('when interacting with post', () => {
+    it('responds to clicks', () => {
+      // given
+      const props = {
+        title: 'Foobar',
+        content: 'Some awesome text',
+        onClick: jest.fn()
+      };
+
+      // when
+      const wrapper = shallow(<Post {...props} />);
+      wrapper.simulate('click');
+
+      // then
+      expect(props.onClick).toHaveBeenCalled();
+    });
+
+    it('appears as selected', () => {
+      // given
+      const props = {
+        title: 'Foobar',
+        content: 'Some awesome text',
+        onClick: jest.fn()
+      };
+
+      // when
+      const wrapper = shallow(<Post {...props} />);
+      wrapper.simulate('click');
+
+      // then
+      expect(wrapper.hasClass('post--selected')).toEqual(true);
     });
   });
 });
