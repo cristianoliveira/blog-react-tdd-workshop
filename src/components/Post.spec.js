@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import Post from './Post';
 
@@ -100,7 +100,7 @@ describe('Post', () => {
       const wrapper = shallow(<Post {...props} />);
 
       // then
-      expect(wrapper.find('Comment')).toHaveLength(2);
+      expect(toJson(wrapper)).toMatchSnapshot();
     });
   });
 

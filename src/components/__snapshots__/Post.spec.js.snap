@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post displaying commentaries renders more than one commentary 1`] = `
+<div
+  className="post undefined"
+  onClick={[Function]}
+>
+  <h1>
+    Foobar
+  </h1>
+  <p>
+    Some awesome text
+  </p>
+  <Comment
+    key="0"
+    text="Awesome"
+  />
+  <Comment
+    key="1"
+    text="Other"
+  />
+</div>
+`;
