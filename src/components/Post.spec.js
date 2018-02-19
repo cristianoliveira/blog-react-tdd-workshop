@@ -19,7 +19,7 @@ describe('Post', () => {
 
     it('renders nothing without title', () => {
       // given
-      const props = {content: 'Foo'};
+      const props = {body: 'Foo'};
 
       // when
       const wrapper = shallow(<Post {...props} />);
@@ -28,7 +28,7 @@ describe('Post', () => {
       expect(wrapper.type()).toBeNull();
     });
 
-    it('renders nothing without content', () => {
+    it('renders nothing without body', () => {
       // given
       const props = {title: 'Foo'};
 
@@ -40,12 +40,12 @@ describe('Post', () => {
     });
   });
 
-  describe('when it has post content', () => {
-    it('renders title and post content', () => {
+  describe('when it has post body', () => {
+    it('renders title and post body', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
+        body: 'Some awesome text',
       };
 
       // when
@@ -62,7 +62,7 @@ describe('Post', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
+        body: 'Some awesome text',
         comments: [],
       };
 
@@ -77,8 +77,8 @@ describe('Post', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
-        comments: [{text: 'Awesome'}],
+        body: 'Some awesome text',
+        comments: [{body: 'Awesome'}],
       };
 
       // when
@@ -92,8 +92,8 @@ describe('Post', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
-        comments: [{text: 'Awesome'}, {text: 'Other'}],
+        body: 'Some awesome text',
+        comments: [{body: 'Awesome'}, {body: 'Other'}],
       };
 
       // when
@@ -109,7 +109,7 @@ describe('Post', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
+        body: 'Some awesome text',
         onClick: jest.fn()
       };
 
@@ -125,7 +125,7 @@ describe('Post', () => {
       // given
       const props = {
         title: 'Foobar',
-        content: 'Some awesome text',
+        body: 'Some awesome text',
         onClick: jest.fn()
       };
 

@@ -2,22 +2,68 @@
 
 exports[`Post displaying commentaries renders more than one commentary 1`] = `
 <div
-  className="post undefined"
+  className="post false"
   onClick={[Function]}
 >
-  <h1>
-    Foobar
-  </h1>
-  <p>
-    Some awesome text
-  </p>
-  <Comment
-    key="0"
-    text="Awesome"
-  />
-  <Comment
-    key="1"
-    text="Other"
-  />
+  <figure
+    className="post-image is-4by3"
+  >
+    <img
+      alt=""
+      src="./images/default.jpg"
+    />
+  </figure>
+  <div
+    className="post-body"
+  >
+    <h1
+      className="post-title"
+    >
+      Foobar
+    </h1>
+    <p
+      className="post-content"
+    >
+      Some awesome text
+    </p>
+    <footer
+      className="post-info"
+    >
+      <span />
+      <span>
+        2 comments
+      </span>
+    </footer>
+  </div>
+  <div
+    className="post-comments"
+  >
+    <Comment
+      body="Awesome"
+      key="0"
+    />
+    <Comment
+      body="Other"
+      key="1"
+    />
+  </div>
+  <form
+    className="post-form-comment"
+    onSubmit={[Function]}
+  >
+    <label>
+      New commentary
+    </label>
+    <textarea
+      cols="40"
+      id="text"
+      name="text"
+      onFocus={[Function]}
+      rows="8"
+    />
+    <button>
+      Send
+    </button>
+  </form>
 </div>
 `;

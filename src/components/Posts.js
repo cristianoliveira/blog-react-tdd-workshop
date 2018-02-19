@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 import Post from './Post';
-import {fetchPosts} from '../api/blog';
+import {fetchPosts, fetchComments} from '../api/blog';
 
 class Posts extends Component {
   constructor(props) {
@@ -14,13 +14,36 @@ class Posts extends Component {
   }
 
   componentDidMount() {
-    fetchPosts().then(posts => this.setState({posts}));
+    fetchPosts()
+      .then(posts => this.setState({posts}))
+      .then(fetchComments)
+      .then(comments => this.setState({comments}));
+  }
+
+  onNewComment(comment) {
+    const comments = [...this.state.comments, comment];
+    this.setState({ comments });
   }
 
   render() {
+    if (!this.state.comments) {
+      return null;
+    }
+
+    const filterComment = post =>
+      this.state.comments.filter(c => c.postId === post.id);
+
+    const postsComments = this.state.posts.map(post => ({
+      ...{post, comments: filterComment(post)},
+    }));
+
     return (
       <section className="column main-column">
-        {this.state.posts.map(post => <Post {...post} />)}
+        {postsComments.map(({post, comments}) => (
+          <Post {...post}
+            comments={comments}
+            onCommentFormSubmit={this.onNewComment.bind(this)} />
+        ))}
       </section>
     );
   }
