@@ -5,11 +5,6 @@ import Post from './Post';
 import {fetchPosts} from '../api/blog';
 
 class Posts extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-  };
-
   constructor(props) {
     super(props);
 
@@ -24,17 +19,16 @@ class Posts extends Component {
 
   render() {
     return (
-    <div className="container">
-      <h1>The awesome blog</h1>
-      {this.state.posts.map(post => (<Post {...post} />)
-      )}
-    </div>
-    )
+      <section className="column main-column">
+        {this.state.posts.map(post => <Post {...post} />)}
+      </section>
+    );
   }
 }
 
-Posts.defaultProps = {};
-
-Posts.propTypes = {};
+Posts.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
 
 export default Posts;

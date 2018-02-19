@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
     "backend": "json-server --watch db.json --port 8082",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "seed": "node ./scripts/dbseed.js > db.json"
   },
   "keywords": [],
   "author": "",
@@ -52,7 +53,8 @@
           [
             "env"
           ],
-          "react"
+          "react",
+          "stage-2"
         ]
       }
     }
