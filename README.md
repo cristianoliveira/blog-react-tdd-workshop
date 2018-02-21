@@ -4,6 +4,7 @@
 ```
 npm i && npm run seed
 ```
+You need to seed at the first run.
 
 ## Running
 ```

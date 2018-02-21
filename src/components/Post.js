@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './Post.css';
 
-const Comment = ({body}) => <div className="post-comment">{body}</div>;
+import PostComments from './PostComments';
 
 class Post extends Component {
   constructor(props) {
@@ -64,15 +64,9 @@ class Post extends Component {
             <span>{author}</span>
             <span>{`${comments.length} comments`}</span>
           </footer>
+
+          <PostComments comments={comments}/>
         </div>
-        <div className="post-comments">
-          { comments.map((comment, i) => (<Comment key={i} {...comment} />)) }
-        </div>
-        <form className="post-form-comment" onSubmit={this.onCommentFormSubmit.bind(this)}>
-          <label>New commentary</label>
-          <textarea onFocus={this.onFocus.bind(this)} name="text" id="text" rows="8" cols="40"></textarea>
-          <button>Send</button>
-        </form>
       </div>
     );
   }

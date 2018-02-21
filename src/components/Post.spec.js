@@ -85,22 +85,7 @@ describe('Post', () => {
       const wrapper = shallow(<Post {...props} />);
 
       // then
-      expect(wrapper.find('Comment')).toHaveLength(1);
-    });
-
-    it('renders more than one commentary', () => {
-      // given
-      const props = {
-        title: 'Foobar',
-        body: 'Some awesome text',
-        comments: [{body: 'Awesome'}, {body: 'Other'}],
-      };
-
-      // when
-      const wrapper = shallow(<Post {...props} />);
-
-      // then
-      expect(toJson(wrapper)).toMatchSnapshot();
+      expect(wrapper.find('PostComments')).toHaveLength(1);
     });
   });
 
