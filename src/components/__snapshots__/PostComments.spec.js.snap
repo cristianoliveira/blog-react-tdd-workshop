@@ -1,63 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Post Comment renders form 1`] = `
-<PostComments
-  comments={
-    Array [
-      Object {
-        "body": "Awesome",
-      },
-      Object {
-        "body": "Worse",
-      },
-    ]
-  }
-  onCommentFormSubmit={[MockFunction]}
-  onFocus={[MockFunction]}
->
-  <div>
-    <div
-      className="post-comments"
-    >
-      <Comment
-        body="Awesome"
-        key="0"
-      >
-        <div
-          className="post-comment"
-        >
-          Awesome
-        </div>
-      </Comment>
-      <Comment
-        body="Worse"
-        key="1"
-      >
-        <div
-          className="post-comment"
-        >
-          Worse
-        </div>
-      </Comment>
-    </div>
-    <form
-      className="post-form-comment"
-      onSubmit={[MockFunction]}
-    >
-      <label>
-        New commentary
-      </label>
-      <textarea
-        cols="40"
-        id="text"
-        name="text"
-        onFocus={[MockFunction]}
-        rows="8"
-      />
-      <button>
-        Send
-      </button>
-    </form>
+<div>
+  <div
+    className="post-comments"
+  >
+    <Comment
+      body="Awesome"
+      key="0"
+    />
+    <Comment
+      body="Worse"
+      key="1"
+    />
   </div>
-</PostComments>
+  <Form
+    onFocus={[MockFunction]}
+    onSubmit={[MockFunction]}
+  />
+</div>
 `;

@@ -5,12 +5,12 @@ import {shallow, mount} from 'enzyme';
 import PostComments from './PostComments';
 
 describe('Post Comment', () => {
-  it('renders nothing', () => {
+  it('renders no comment section', () => {
     const props = {comments: []};
 
     const component = shallow(<PostComments {...props} />);
 
-    expect(component.type()).toEqual(null);
+    expect(component.find('Comments').exists()).toEqual(false);
   });
 
   it('renders a comment', () => {

@@ -6,7 +6,7 @@ import Post from './Post';
 
 describe('Post', () => {
   describe('when is empty', () => {
-    it('renders nothing', () => {
+    it('renders no comment sections', () => {
       // given
       const props = {};
 
@@ -14,7 +14,7 @@ describe('Post', () => {
       const wrapper = shallow(<Post {...props} />);
 
       //then
-      expect(wrapper.type()).toBeNull();
+      expect(wrapper.find('PostComments')).toHaveLength();
     });
 
     it('renders nothing without title', () => {

@@ -3,29 +3,34 @@ import PropTypes from 'prop-types';
 
 const Comment = ({body}) => <div className="post-comment">{body}</div>;
 
+const Form = ({onSubmit, onFocus}) => (
+  <form
+    className="post-form-comment"
+    onSubmit={onCommentFormSubmit}>
+    <label>New commentary</label>
+    <textarea
+      onFocus={onFocus}
+      name="text"
+      id="text"
+      rows="8"
+      cols="40"
+    />
+    <button>Send</button>
+  </form>
+);
+
+
 function PostComments({comments, onCommentFormSubmit, onFocus}) {
-  if (!comments.length) {
-    return null;
-  }
+  const commentSection = comments.length ? (
+    <div className="post-comments">
+      {comments.map((comment, i) => <Comment key={i} {...comment} />)}
+    </div>
+     ) : null;
 
   return (
     <div>
-      <div className="post-comments">
-        {comments.map((comment, i) => <Comment key={i} {...comment} />)}
-      </div>
-      <form
-        className="post-form-comment"
-        onSubmit={onCommentFormSubmit}>
-        <label>New commentary</label>
-        <textarea
-          onFocus={onFocus}
-          name="text"
-          id="text"
-          rows="8"
-          cols="40"
-        />
-        <button>Send</button>
-      </form>
+      { commentSection }
+      <Form onSubmit={onCommentFormSubmit} onFocus={onFocus}/>
     </div>
   );
 }
